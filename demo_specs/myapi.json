@@ -107,24 +107,6 @@
           "200": { "description": "Deleted" }
         }
       }
-    },
-    "/posts/{id}/comments": {
-      "get": {
-        "summary": "Get comments for a specific post",
-        "operationId": "getPostComments",
-        "tags": ["Comments"],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": { "type": "integer" }
-          }
-        ],
-        "responses": {
-          "200": { "description": "List of comments" }
-        }
-      }
     }
   }
 }
