@@ -19,6 +19,16 @@
             "description": "Free open-source weather API with no API key required",
             "homepage": "https://open-meteo.com",
             "enabled": true
+        },
+        {
+            "id": "demoapi",
+            "name": "Demo API",
+            "specUrl": "https://raw.githubusercontent.com/BalaSubramaniam12007/api-explorer/main/demo_specs/myapi.json",
+            "specFormat": "json",
+            "category": "Utilities",
+            "description": "Demo API for GSoC PoC showcase",
+            "homepage": "",
+            "enabled": true
         }
     ]
 }
