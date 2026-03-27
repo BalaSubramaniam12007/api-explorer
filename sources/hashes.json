@@ -1,1 +1,10 @@
-{}
+{
+  "github": {
+    "hash": "9c953886efe4498848407eec48e645fd6f87c9b9f335ef3a388834004c935977",
+    "lastSynced": "2026-03-27T21:24:46Z"
+  },
+  "openmeteo": {
+    "hash": "aa1cf4a1c9f4a0a53c9326696596d067e6802c4fb01d3fe36a7611ad7419a9ad",
+    "lastSynced": "2026-03-27T21:24:48Z"
+  }
+}

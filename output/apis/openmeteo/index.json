@@ -6,6 +6,11 @@
       "version": "v1",
       "templatesPath": "v1/templates.json",
       "updatedAt": "2026-03-27T21:16:07.613179Z"
+    },
+    {
+      "version": "v1",
+      "templatesPath": "v1/templates.json",
+      "updatedAt": "2026-03-27T21:24:48.283338Z"
     }
   ]
 }
