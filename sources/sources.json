@@ -1,13 +1,13 @@
 {
     "sources": [
         {
-            "id": "catfacts",
-            "name": "Cat Facts",
-            "specUrl": "https://catfact.ninja/docs/api-docs.json",
+            "id": "github",
+            "name": "Github",
+            "specUrl": "https://raw.githubusercontent.com/github/rest-api-description/main/descriptions/api.github.com/api.github.com.json",
             "specFormat": "json",
-            "category": "Fun",
-            "description": "Random cat facts API",
-            "homepage": "https://catfact.ninja",
+            "category": "Social",
+            "description": "Github API",
+            "homepage": "https://github.com",
             "enabled": true
         },
         {
@@ -18,26 +18,6 @@
             "category": "Weather",
             "description": "Free open-source weather API with no API key required",
             "homepage": "https://open-meteo.com",
-            "enabled": true
-        },
-        {
-            "id": "restcountries",
-            "name": "REST Countries",
-            "specUrl": "https://restcountries.com/openapi.json",
-            "specFormat": "json",
-            "category": "Utilities",
-            "description": "Get information about countries via REST API",
-            "homepage": "https://restcountries.com",
-            "enabled": true
-        },
-        {
-            "id": "demoapi",
-            "name": "Demo API",
-            "specUrl": "https://raw.githubusercontent.com/BalaSubramaniam12007/api-explorer/main/demo_specs/myapi.json",
-            "specFormat": "json",
-            "category": "Utilities",
-            "description": "Demo API for GSoC PoC showcase",
-            "homepage": "",
             "enabled": true
         }
     ]

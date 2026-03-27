@@ -1,0 +1,102 @@
+flowchart TD
+
+%% ========================
+%% SOURCE MANAGEMENT
+%% ========================
+A[Maintainer adds new API source] --> B[Update sources.json]
+B --> C[Workflow 1: Weekly Source Discovery]
+
+C --> D{New source detected?}
+D -- No --> E[Do nothing]
+D -- Yes --> F[Assign source to batch]
+F --> G[Update batch registry]
+
+%% ========================
+%% DAILY SYNC WORKFLOW
+%% ========================
+G --> H[Workflow 2: Daily Sync + Versioning]
+H --> I[Select next batch]
+
+I --> J[Iterate sources in batch]
+
+J --> K[Send conditional request (ETag / Last-Modified)]
+
+K --> L{Changed?}
+
+L -- No --> M[Skip source]
+L -- Yes --> N[Fetch full OpenAPI spec]
+
+%% ========================
+%% CHANGE DETECTION
+%% ========================
+N --> O[Normalize spec]
+O --> P[Generate hash]
+P --> Q{Hash changed?}
+
+Q -- No --> M
+Q -- Yes --> R[Trigger pipeline]
+
+%% ========================
+%% PIPELINE PROCESSING
+%% ========================
+R --> S[Parse OpenAPI]
+S --> T[Extract endpoints]
+T --> U[Normalize data]
+U --> V[Enrich metadata (tags, category)]
+V --> W[Generate templates (API Dash format)]
+
+%% ========================
+%% VALIDATION
+%% ========================
+W --> X[Validation Layer]
+X --> Y{Valid?}
+
+Y -- No --> Z[Reject update, keep old version]
+Y -- Yes --> AA[Create new version folder]
+
+%% ========================
+%% STORAGE
+%% ========================
+AA --> AB[Store templates in repo]
+AB --> AC[Update per-API index]
+AC --> AD[Update global index]
+
+AD --> AE[Commit to GitHub repo]
+
+%% ========================
+%% DISTRIBUTION
+%% ========================
+AE --> AF[jsDelivr CDN caches files]
+
+%% ========================
+%% CLIENT SIDE
+%% ========================
+AF --> AG[Client App Launch]
+AG --> AH[Fetch global index.json]
+
+AH --> AI[Render categories + API list]
+
+AI --> AJ[User searches / browses]
+
+AJ --> AK[User selects API]
+AK --> AL[Fetch per-API index]
+
+AL --> AM[Render endpoint list]
+
+AM --> AN[User selects endpoint]
+AN --> AO[Fetch template file]
+
+AO --> AP[Load into API Dash editor]
+
+AP --> AQ[User edits request]
+AQ --> AR[User executes request]
+
+AR --> AS[External API responds]
+AS --> AT[Display response to user]
+
+%% ========================
+%% VERSION SWITCH FLOW
+%% ========================
+AM --> AU[User selects different version]
+AU --> AV[Fetch version-specific per-API index]
+AV --> AM

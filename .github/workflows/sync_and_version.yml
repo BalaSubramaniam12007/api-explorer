@@ -4,6 +4,10 @@ name: "Workflow 2: Sync & Version"
 # GSOC: schedule: cron: '0 2 * * *'  + batch rotation from batch_state.json
 on:
   workflow_dispatch:
+  workflow_run:
+    workflows: ["Workflow 1: Source Discovery"]
+    types:
+      - completed
 
 jobs:
   sync:
