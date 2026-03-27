@@ -1,0 +1,11 @@
+{
+  "id": "demoapi",
+  "name": "Demo API",
+  "versions": [
+    {
+      "version": "v1",
+      "templatesPath": "v1/templates.json",
+      "updatedAt": "2026-03-27T21:31:20.418937Z"
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "info": {
+    "title": "Demo API",
+    "description": "A minimal demo API for GSoC PoC",
+    "tags": [
+      "Posts"
+    ]
+  },
+  "requests": [
+    {
+      "id": "demoapi-get-posts",
+      "apiType": "rest",
+      "name": "List all posts",
+      "description": "",
+      "httpRequestModel": {
+        "method": "get",
+        "url": "https://jsonplaceholder.typicode.com/posts",
+        "headers": null,
+        "params": null,
+        "isHeaderEnabledList": null,
+        "isParamEnabledList": null,
+        "authModel": {
+          "type": "none"
+        },
+        "bodyContentType": "json",
+        "body": null,
+        "query": null,
+        "formData": null
+      },
+      "responseStatus": null,
+      "message": null,
+      "httpResponseModel": null,
+      "preRequestScript": null,
+      "postRequestScript": null,
+      "aiRequestModel": null
+    },
+    {
+      "id": "demoapi-get-posts-id",
+      "apiType": "rest",
+      "name": "Get a post by ID",
+      "description": "",
+      "httpRequestModel": {
+        "method": "get",
+        "url": "https://jsonplaceholder.typicode.com/posts/{id}",
+        "headers": null,
+        "params": null,
+        "isHeaderEnabledList": null,
+        "isParamEnabledList": null,
+        "authModel": {
+          "type": "none"
+        },
+        "bodyContentType": "json",
+        "body": null,
+        "query": null,
+        "formData": null
+      },
+      "responseStatus": null,
+      "message": null,
+      "httpResponseModel": null,
+      "preRequestScript": null,
+      "postRequestScript": null,
+      "aiRequestModel": null
+    }
+  ]
+}
