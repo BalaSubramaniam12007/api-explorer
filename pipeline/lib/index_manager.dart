@@ -3,20 +3,11 @@ import 'dart:convert';
 
 const _encoder = JsonEncoder.withIndent('  ');
 
-/// Get the next version string (v1, v2, ...) by checking existing folders.
+/// Get the next version string using date (YYYY-MM-DD).
 String getNextVersion(String apiDir) {
-  final dir = Directory(apiDir);
-  if (!dir.existsSync()) return 'v1';
-
-  int max = 0;
-  for (final entity in dir.listSync()) {
-    final name = entity.uri.pathSegments.last;
-    if (name.startsWith('v')) {
-      final n = int.tryParse(name.substring(1));
-      if (n != null && n > max) max = n;
-    }
-  }
-  return 'v${max + 1}';
+  final now = DateTime.now().toUtc();
+  final dateStr = now.toIso8601String().split('T')[0];
+  return dateStr;
 }
 
 /// Write/update the per-API index file.
