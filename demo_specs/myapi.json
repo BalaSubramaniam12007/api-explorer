@@ -1,56 +1,130 @@
 {
-    "openapi": "3.0.0",
-    "info": {
-        "title": "Demo API",
-        "description": "A minimal demo API for GSoC PoC",
-        "version": "1.0.0"
-    },
-    "servers": [
-        {
-            "url": "https://jsonplaceholder.typicode.com"
-        }
-    ],
-    "paths": {
-        "/posts": {
-            "get": {
-                "summary": "List all posts",
-                "operationId": "listPosts",
-                "tags": [
-                    "Posts"
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK"
-                    }
-                }
-            }
-        },
-        "/posts/{id}": {
-            "get": {
-                "summary": "Get a post by ID",
-                "operationId": "getPost",
-                "tags": [
-                    "Posts"
-                ],
-                "parameters": [
-                    {
-                        "name": "id",
-                        "in": "path",
-                        "required": true,
-                        "schema": {
-                            "type": "integer"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK"
-                    },
-                    "404": {
-                        "description": "Not found"
-                    }
-                }
-            }
-        }
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Demo API",
+    "description": "An expanded demo API for GSoC PoC featuring CRUD operations and nested resources.",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://jsonplaceholder.typicode.com"
     }
+  ],
+  "paths": {
+    "/posts": {
+      "get": {
+        "summary": "List all posts",
+        "operationId": "listPosts",
+        "tags": ["Posts"],
+        "responses": {
+          "200": { "description": "Successful response" }
+        }
+      },
+      "post": {
+        "summary": "Create a new post",
+        "operationId": "createPost",
+        "tags": ["Posts"],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "title": { "type": "string" },
+                  "body": { "type": "string" },
+                  "userId": { "type": "integer" }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": { "description": "Created" }
+        }
+      }
+    },
+    "/posts/{id}": {
+      "get": {
+        "summary": "Get a post by ID",
+        "operationId": "getPost",
+        "tags": ["Posts"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "integer" }
+          }
+        ],
+        "responses": {
+          "200": { "description": "OK" },
+          "404": { "description": "Not found" }
+        }
+      },
+      "put": {
+        "summary": "Update a post",
+        "operationId": "updatePost",
+        "tags": ["Posts"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "integer" }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "title": { "type": "string" },
+                  "body": { "type": "string" }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": { "description": "Updated" }
+        }
+      },
+      "delete": {
+        "summary": "Delete a post",
+        "operationId": "deletePost",
+        "tags": ["Posts"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "integer" }
+          }
+        ],
+        "responses": {
+          "200": { "description": "Deleted" }
+        }
+      }
+    },
+    "/posts/{id}/comments": {
+      "get": {
+        "summary": "Get comments for a specific post",
+        "operationId": "getPostComments",
+        "tags": ["Comments"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "integer" }
+          }
+        ],
+        "responses": {
+          "200": { "description": "List of comments" }
+        }
+      }
+    }
+  }
 }
