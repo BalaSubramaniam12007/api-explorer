@@ -51,6 +51,7 @@ jobs:
               --source-id "$ID" \
               --spec-file /tmp/spec_raw \
               --category "$CATEGORY" \
+              --sources-file sources/sources.json \
               --output-dir output || { echo "Pipeline failed — skip"; continue; }
 
             jq --arg id "$ID" --arg h "$NEW_HASH" --arg ts "$(date -u +%Y-%m-%dT%H:%M:%SZ)" \
