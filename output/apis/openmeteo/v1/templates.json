@@ -1,0 +1,90 @@
+{
+  "info": {
+    "title": "Open-Meteo APIs",
+    "description": "Open-Meteo offers free weather forecast APIs for open-source developers and non-commercial use. No API key is required.",
+    "tags": [
+      "Weather Forecast APIs"
+    ]
+  },
+  "requests": [
+    {
+      "id": "openmeteo-get-v1-forecast",
+      "apiType": "rest",
+      "name": "7 day weather forecast for coordinates",
+      "description": "7 day weather variables in hourly and daily resolution for given WGS84 latitude and longitude coordinates. Available worldwide.",
+      "httpRequestModel": {
+        "method": "get",
+        "url": "/v1/forecast",
+        "headers": null,
+        "params": [
+          {
+            "name": "hourly",
+            "value": ""
+          },
+          {
+            "name": "daily",
+            "value": ""
+          },
+          {
+            "name": "latitude",
+            "value": ""
+          },
+          {
+            "name": "longitude",
+            "value": ""
+          },
+          {
+            "name": "current_weather",
+            "value": ""
+          },
+          {
+            "name": "temperature_unit",
+            "value": ""
+          },
+          {
+            "name": "wind_speed_unit",
+            "value": ""
+          },
+          {
+            "name": "timeformat",
+            "value": ""
+          },
+          {
+            "name": "timezone",
+            "value": ""
+          },
+          {
+            "name": "past_days",
+            "value": ""
+          }
+        ],
+        "isHeaderEnabledList": null,
+        "isParamEnabledList": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "authModel": {
+          "type": "none"
+        },
+        "bodyContentType": "json",
+        "body": null,
+        "query": null,
+        "formData": null
+      },
+      "responseStatus": null,
+      "message": null,
+      "httpResponseModel": null,
+      "preRequestScript": null,
+      "postRequestScript": null,
+      "aiRequestModel": null
+    }
+  ]
+}

@@ -1,5 +1,25 @@
 {
-    "updatedAt": null,
-    "apis": [],
-    "categories": []
+  "updatedAt": "2026-03-27T21:19:49.621711Z",
+  "apis": [
+    {
+      "id": "github",
+      "name": "Github",
+      "category": "Social",
+      "description": "Github API",
+      "latestVersion": "v1",
+      "endpointCount": 1107
+    },
+    {
+      "id": "openmeteo",
+      "name": "Open-Meteo",
+      "category": "Weather",
+      "description": "Free open-source weather API with no API key required",
+      "latestVersion": "v1",
+      "endpointCount": 1
+    }
+  ],
+  "categories": [
+    "Social",
+    "Weather"
+  ]
 }
