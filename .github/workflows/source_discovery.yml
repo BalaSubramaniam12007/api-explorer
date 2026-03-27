@@ -1,0 +1,42 @@
+name: "Workflow 1: Source Discovery"
+
+# MVP: manual trigger
+# GSOC: schedule: cron: '0 0 * * 0'
+on:
+  workflow_dispatch:
+
+jobs:
+  discover:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Detect and register new sources
+        run: |
+          # Create batch_state.json if missing
+          [ -f sources/batch_state.json ] || echo '{"registered":[]}' > sources/batch_state.json
+
+          ALL=$(jq '[.sources[] | select(.enabled==true) | .id]' sources/sources.json)
+          REGISTERED=$(jq '[.registered[]]' sources/batch_state.json)
+
+          NEW=$(jq -n --argjson a "$ALL" --argjson r "$REGISTERED" '$a - $r')
+          echo "New sources: $NEW"
+
+          if [ "$NEW" = "[]" ]; then
+            echo "Nothing new."; exit 0
+          fi
+
+          # GSOC: assign to batches instead of flat list
+          jq --argjson new "$NEW" '.registered += $new' \
+            sources/batch_state.json > /tmp/bs.json
+          mv /tmp/bs.json sources/batch_state.json
+
+      - name: Commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add sources/batch_state.json
+          git diff --cached --quiet || git commit -m "chore: register new sources [skip ci]" && git push

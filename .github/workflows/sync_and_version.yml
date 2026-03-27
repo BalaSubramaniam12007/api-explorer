@@ -1,0 +1,64 @@
+name: "Workflow 2: Sync & Version"
+
+# MVP: manual trigger, processes all sources
+# GSOC: schedule: cron: '0 2 * * *'  + batch rotation from batch_state.json
+on:
+  workflow_dispatch:
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: dart-lang/setup-dart@v1
+        with:
+          sdk: stable
+
+      - run: dart pub get
+        working-directory: pipeline
+
+      - name: Sync all sources
+        run: |
+          [ -f sources/hashes.json ] || echo '{}' > sources/hashes.json
+
+          # MVP: process all enabled sources
+          # GSOC: read current batch from batch_state.json, process only that batch
+          jq -r '.sources[] | select(.enabled==true) | .id' sources/sources.json | while read -r ID; do
+            echo "--- $ID ---"
+
+            SPEC_URL=$(jq -r --arg id "$ID" '.sources[] | select(.id==$id) | .specUrl' sources/sources.json)
+            CATEGORY=$(jq -r --arg id "$ID" '.sources[] | select(.id==$id) | .category' sources/sources.json)
+
+            HTTP=$(curl -sS -o /tmp/spec_raw -w "%{http_code}" "$SPEC_URL")
+            [ "$HTTP" != "200" ] && echo "HTTP $HTTP — skip" && continue
+
+            NEW_HASH=$(sha256sum /tmp/spec_raw | awk '{print $1}')
+            OLD_HASH=$(jq -r --arg id "$ID" '.[$id].hash // ""' sources/hashes.json)
+
+            if [ "$OLD_HASH" = "$NEW_HASH" ]; then
+              echo "Unchanged — skip"; continue
+            fi
+
+            dart run pipeline/bin/pipeline.dart \
+              --source-id "$ID" \
+              --spec-file /tmp/spec_raw \
+              --category "$CATEGORY" \
+              --output-dir output || { echo "Pipeline failed — skip"; continue; }
+
+            jq --arg id "$ID" --arg h "$NEW_HASH" --arg ts "$(date -u +%Y-%m-%dT%H:%M:%SZ)" \
+              '.[$id] = {hash: $h, lastSynced: $ts}' \
+              sources/hashes.json > /tmp/h.json && mv /tmp/h.json sources/hashes.json
+          done
+
+      - name: Commit output
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add output/ sources/hashes.json
+          git diff --cached --quiet \
+            && echo "No changes." \
+            || git commit -m "chore: sync templates [$(date -u +%Y-%m-%dT%H:%M:%SZ)] [skip ci]" && git push

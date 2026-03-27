@@ -1,0 +1,56 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Demo API",
+        "description": "A minimal demo API for GSoC PoC",
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "https://jsonplaceholder.typicode.com"
+        }
+    ],
+    "paths": {
+        "/posts": {
+            "get": {
+                "summary": "List all posts",
+                "operationId": "listPosts",
+                "tags": [
+                    "Posts"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/posts/{id}": {
+            "get": {
+                "summary": "Get a post by ID",
+                "operationId": "getPost",
+                "tags": [
+                    "Posts"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                }
+            }
+        }
+    }
+}
