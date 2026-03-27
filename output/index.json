@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-03-27T21:34:07.875143Z",
+  "updatedAt": "2026-03-27T21:45:49.792770Z",
   "apis": [
     {
       "id": "openmeteo",
@@ -22,8 +22,8 @@
       "name": "Demo API",
       "category": "Utilities",
       "description": "Demo API for GSoC PoC showcase",
-      "latestVersion": "v1",
-      "endpointCount": 6
+      "latestVersion": "2026-03-27",
+      "endpointCount": 5
     }
   ],
   "categories": [

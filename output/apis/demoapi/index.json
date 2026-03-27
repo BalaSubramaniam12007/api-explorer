@@ -11,6 +11,11 @@
       "version": "v1",
       "templatesPath": "v1/templates.json",
       "updatedAt": "2026-03-27T21:34:07.833352Z"
+    },
+    {
+      "version": "2026-03-27",
+      "templatesPath": "2026-03-27/templates.json",
+      "updatedAt": "2026-03-27T21:45:49.748790Z"
     }
   ]
 }
