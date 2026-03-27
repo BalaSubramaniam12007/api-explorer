@@ -1,6 +1,7 @@
 {
   "registered": [
     "github",
-    "openmeteo"
+    "openmeteo",
+    "demoapi"
   ]
 }
