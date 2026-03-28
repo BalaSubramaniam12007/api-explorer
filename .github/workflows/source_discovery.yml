@@ -39,4 +39,4 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add registry/batch_state.json
-          git diff --cached --quiet || git commit -m "chore: register new sources [skip ci]" && git push
+          git diff --cached --quiet || git commit -m "chore: register newly discovered API sources" && git push
