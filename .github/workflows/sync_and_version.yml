@@ -27,15 +27,15 @@ jobs:
 
       - name: Sync all sources
         run: |
-          [ -f sources/hashes.json ] || echo '{}' > sources/hashes.json
+          [ -f registry/hashes.json ] || echo '{}' > registry/hashes.json
 
           # MVP: process all enabled sources
           # GSOC: read current batch from batch_state.json, process only that batch
-          jq -r '.sources[] | select(.enabled==true) | .id' sources/sources.json | while read -r ID; do
+          jq -r '.sources[] | select(.enabled==true) | .id' registry/registry.json | while read -r ID; do
             echo "--- $ID ---"
 
-            SPEC_URL=$(jq -r --arg id "$ID" '.sources[] | select(.id==$id) | .specUrl' sources/sources.json)
-            CATEGORY=$(jq -r --arg id "$ID" '.sources[] | select(.id==$id) | .category' sources/sources.json)
+            SPEC_URL=$(jq -r --arg id "$ID" '.sources[] | select(.id==$id) | .specUrl' registry/registry.json)
+            CATEGORY=$(jq -r --arg id "$ID" '.sources[] | select(.id==$id) | .category' registry/registry.json)
 
             HTTP=$(curl -sS -o /tmp/spec_raw -w "%{http_code}" "$SPEC_URL")
             [ "$HTTP" != "200" ] && echo "HTTP $HTTP — skip" && continue
@@ -51,12 +51,12 @@ jobs:
               --source-id "$ID" \
               --spec-file /tmp/spec_raw \
               --category "$CATEGORY" \
-              --sources-file sources/sources.json \
-              --output-dir output || { echo "Pipeline failed — skip"; continue; }
+              --sources-file registry/registry.json \
+              --output-dir api_templates || { echo "Pipeline failed — skip"; continue; }
 
             jq --arg id "$ID" --arg h "$NEW_HASH" --arg ts "$(date -u +%Y-%m-%dT%H:%M:%SZ)" \
               '.[$id] = {hash: $h, lastSynced: $ts}' \
-              sources/hashes.json > /tmp/h.json && mv /tmp/h.json sources/hashes.json
+              registry/hashes.json > /tmp/h.json && mv /tmp/h.json registry/hashes.json
           done
 
       - name: Generate current.json pointer
@@ -67,14 +67,14 @@ jobs:
             --arg sha "$COMMIT_SHA" \
             --arg ts "$TIMESTAMP" \
             '{sha: $sha, updatedAt: $ts, message: "Pointer to latest immutable CDN URLs"}' \
-            > output/current.json
-          cat output/current.json
+            > api_templates/current.json
+          cat api_templates/current.json
 
       - name: Commit output
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add output/ sources/hashes.json
+          git add api_templates/ registry/hashes.json
           git diff --cached --quiet \
             && echo "No changes." \
             || git commit -m "chore: sync templates [$(date -u +%Y-%m-%dT%H:%M:%SZ)] [skip ci]" && git push
@@ -82,9 +82,9 @@ jobs:
       - name: Purge jsDelivr Cache
         run: |
           # Purge the pointer file (only mutable file)
-          curl -s https://purge.jsdelivr.net/gh/${{ github.repository }}@main/output/current.json
-          echo "Purged: output/current.json"
+          curl -s https://purge.jsdelivr.net/gh/${{ github.repository }}@main/api_templates/current.json
+          echo "Purged: api_templates/current.json"
           
           # Purge the global index (secondary option)
-          curl -s https://purge.jsdelivr.net/gh/${{ github.repository }}@main/output/index.json
-          echo "Purged: output/index.json"
+          curl -s https://purge.jsdelivr.net/gh/${{ github.repository }}@main/api_templates/global_index.json
+          echo "Purged: api_templates/global_index.json"

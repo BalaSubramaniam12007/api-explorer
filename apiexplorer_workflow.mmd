@@ -3,7 +3,7 @@ flowchart TD
 %% ========================
 %% SOURCE MANAGEMENT
 %% ========================
-A[Maintainer adds new API source] --> B[Update sources.json]
+A[Maintainer adds new API source] --> B[Update registry.json]
 B --> C[Workflow 1: Weekly Source Discovery]
 
 C --> D{New source detected?}
@@ -72,7 +72,7 @@ AE --> AF[jsDelivr CDN caches files]
 %% CLIENT SIDE
 %% ========================
 AF --> AG[Client App Launch]
-AG --> AH[Fetch global index.json]
+AG --> AH[Fetch global_index.json]
 
 AH --> AI[Render categories + API list]
 

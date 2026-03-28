@@ -102,7 +102,7 @@ void updateGlobalIndex(String outputDir, String sourcesFile) {
     'categories': categories.toList()..sort(),
   };
 
-  final indexFile = File('$outputDir/index.json');
+  final indexFile = File('$outputDir/global_index.json');
   indexFile.writeAsStringSync(_encoder.convert(globalIndex));
   print('Updated: ${indexFile.path}');
 }
