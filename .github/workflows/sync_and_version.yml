@@ -90,9 +90,9 @@ jobs:
       - name: Purge jsDelivr Cache
         run: |
           # Purge the pointer file (only mutable file)
-          curl -s https://purge.jsdelivr.net/gh/${{ github.repository }}@main/api_templates/current.json
+          curl -s https://purge.jsdelivr.net/gh/${{ github.repository }}/api_templates/current.json
           echo "Purged: api_templates/current.json"
           
           # Purge the global index (secondary option)
-          curl -s https://purge.jsdelivr.net/gh/${{ github.repository }}@main/api_templates/global_index.json
+          curl -s https://purge.jsdelivr.net/gh/${{ github.repository }}/api_templates/global_index.json
           echo "Purged: api_templates/global_index.json"
