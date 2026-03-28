@@ -3,6 +3,20 @@ import 'dart:convert';
 
 const _encoder = JsonEncoder.withIndent('  ');
 
+/// Generate immutable CDN pointer file.
+void generateCurrentPointer(String outputDir, String commitSha) {
+  final now = DateTime.now().toUtc();
+  final pointer = {
+    'sha': commitSha,
+    'updatedAt': now.toIso8601String(),
+    'message': 'Pointer to latest immutable CDN URLs at commit',
+  };
+
+  final pointerFile = File('$outputDir/current.json');
+  pointerFile.writeAsStringSync(_encoder.convert(pointer));
+  print('Generated: ${pointerFile.path}');
+}
+
 /// Get the next version string using date (YYYY-MM-DD).
 String getNextVersion(String apiDir) {
   final now = DateTime.now().toUtc();
