@@ -41,7 +41,7 @@ jobs:
             [ "$HTTP" != "200" ] && echo "HTTP $HTTP — skip" && continue
 
             NEW_HASH=$(sha256sum /tmp/spec_raw | awk '{print $1}')
-            OLD_HASH=$(jq -r --arg id "$ID" '.[$id].hash // ""' sources/hashes.json)
+            OLD_HASH=$(jq -r --arg id "$ID" '.[$id].hash // ""' registry/hashes.json)
 
             if [ "$OLD_HASH" = "$NEW_HASH" ]; then
               echo "Unchanged — skip"; continue
