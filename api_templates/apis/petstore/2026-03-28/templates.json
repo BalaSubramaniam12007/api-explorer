@@ -1,0 +1,620 @@
+{
+  "info": {
+    "title": "Swagger Petstore - OpenAPI 3.0",
+    "description": "This is a sample Pet Store Server based on the OpenAPI 3.0 specification.  You can find out more about\nSwagger at [https://swagger.io](https://swagger.io). In the third iteration of the pet store, we've switched to the design first approach!\nYou can now help us improve the API whether it's by making changes to the definition itself or to the code.\nThat way, with time, we can improve the API in general, and expose some of the new features in OAS3.\n\nSome useful links:\n- [The Pet Store repository](https://github.com/swagger-api/swagger-petstore)\n- [The source API definition for the Pet Store](https://github.com/swagger-api/swagger-petstore/blob/master/src/main/resources/openapi.yaml)",
+    "tags": [
+      "pet",
+      "store",
+      "user"
+    ]
+  },
+  "requests": [
+    {
+      "id": "petstore-post-pet",
+      "apiType": "rest",
+      "name": "Add a new pet to the store.",
+      "description": "Add a new pet to the store.",
+      "httpRequestModel": {
+        "method": "post",
+        "url": "/api/v3/pet",
+        "headers": [
+          {
+            "name": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "params": null,
+        "isHeaderEnabledList": [
+          true
+        ],
+        "isParamEnabledList": null,
+        "authModel": {
+          "type": "none"
+        },
+        "bodyContentType": "json",
+        "body": null,
+        "query": null,
+        "formData": null
+      },
+      "responseStatus": null,
+      "message": null,
+      "httpResponseModel": null,
+      "preRequestScript": null,
+      "postRequestScript": null,
+      "aiRequestModel": null
+    },
+    {
+      "id": "petstore-put-pet",
+      "apiType": "rest",
+      "name": "Update an existing pet.",
+      "description": "Update an existing pet by Id.",
+      "httpRequestModel": {
+        "method": "put",
+        "url": "/api/v3/pet",
+        "headers": [
+          {
+            "name": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "params": null,
+        "isHeaderEnabledList": [
+          true
+        ],
+        "isParamEnabledList": null,
+        "authModel": {
+          "type": "none"
+        },
+        "bodyContentType": "json",
+        "body": null,
+        "query": null,
+        "formData": null
+      },
+      "responseStatus": null,
+      "message": null,
+      "httpResponseModel": null,
+      "preRequestScript": null,
+      "postRequestScript": null,
+      "aiRequestModel": null
+    },
+    {
+      "id": "petstore-get-pet-findByStatus",
+      "apiType": "rest",
+      "name": "Finds Pets by status.",
+      "description": "Multiple status values can be provided with comma separated strings.",
+      "httpRequestModel": {
+        "method": "get",
+        "url": "/api/v3/pet/findByStatus",
+        "headers": null,
+        "params": [
+          {
+            "name": "status",
+            "value": ""
+          }
+        ],
+        "isHeaderEnabledList": null,
+        "isParamEnabledList": [
+          true
+        ],
+        "authModel": {
+          "type": "none"
+        },
+        "bodyContentType": "json",
+        "body": null,
+        "query": null,
+        "formData": null
+      },
+      "responseStatus": null,
+      "message": null,
+      "httpResponseModel": null,
+      "preRequestScript": null,
+      "postRequestScript": null,
+      "aiRequestModel": null
+    },
+    {
+      "id": "petstore-get-pet-findByTags",
+      "apiType": "rest",
+      "name": "Finds Pets by tags.",
+      "description": "Multiple tags can be provided with comma separated strings. Use tag1, tag2, tag3 for testing.",
+      "httpRequestModel": {
+        "method": "get",
+        "url": "/api/v3/pet/findByTags",
+        "headers": null,
+        "params": [
+          {
+            "name": "tags",
+            "value": ""
+          }
+        ],
+        "isHeaderEnabledList": null,
+        "isParamEnabledList": [
+          true
+        ],
+        "authModel": {
+          "type": "none"
+        },
+        "bodyContentType": "json",
+        "body": null,
+        "query": null,
+        "formData": null
+      },
+      "responseStatus": null,
+      "message": null,
+      "httpResponseModel": null,
+      "preRequestScript": null,
+      "postRequestScript": null,
+      "aiRequestModel": null
+    },
+    {
+      "id": "petstore-get-pet-petId",
+      "apiType": "rest",
+      "name": "Find pet by ID.",
+      "description": "Returns a single pet.",
+      "httpRequestModel": {
+        "method": "get",
+        "url": "/api/v3/pet/{petId}",
+        "headers": null,
+        "params": null,
+        "isHeaderEnabledList": null,
+        "isParamEnabledList": null,
+        "authModel": {
+          "type": "none"
+        },
+        "bodyContentType": "json",
+        "body": null,
+        "query": null,
+        "formData": null
+      },
+      "responseStatus": null,
+      "message": null,
+      "httpResponseModel": null,
+      "preRequestScript": null,
+      "postRequestScript": null,
+      "aiRequestModel": null
+    },
+    {
+      "id": "petstore-post-pet-petId",
+      "apiType": "rest",
+      "name": "Updates a pet in the store with form data.",
+      "description": "Updates a pet resource based on the form data.",
+      "httpRequestModel": {
+        "method": "post",
+        "url": "/api/v3/pet/{petId}",
+        "headers": null,
+        "params": [
+          {
+            "name": "name",
+            "value": ""
+          },
+          {
+            "name": "status",
+            "value": ""
+          }
+        ],
+        "isHeaderEnabledList": null,
+        "isParamEnabledList": [
+          true,
+          true
+        ],
+        "authModel": {
+          "type": "none"
+        },
+        "bodyContentType": "json",
+        "body": null,
+        "query": null,
+        "formData": null
+      },
+      "responseStatus": null,
+      "message": null,
+      "httpResponseModel": null,
+      "preRequestScript": null,
+      "postRequestScript": null,
+      "aiRequestModel": null
+    },
+    {
+      "id": "petstore-delete-pet-petId",
+      "apiType": "rest",
+      "name": "Deletes a pet.",
+      "description": "Delete a pet.",
+      "httpRequestModel": {
+        "method": "delete",
+        "url": "/api/v3/pet/{petId}",
+        "headers": [
+          {
+            "name": "api_key",
+            "value": ""
+          }
+        ],
+        "params": null,
+        "isHeaderEnabledList": [
+          true
+        ],
+        "isParamEnabledList": null,
+        "authModel": {
+          "type": "none"
+        },
+        "bodyContentType": "json",
+        "body": null,
+        "query": null,
+        "formData": null
+      },
+      "responseStatus": null,
+      "message": null,
+      "httpResponseModel": null,
+      "preRequestScript": null,
+      "postRequestScript": null,
+      "aiRequestModel": null
+    },
+    {
+      "id": "petstore-post-pet-petId-uploadImage",
+      "apiType": "rest",
+      "name": "Uploads an image.",
+      "description": "Upload image of the pet.",
+      "httpRequestModel": {
+        "method": "post",
+        "url": "/api/v3/pet/{petId}/uploadImage",
+        "headers": null,
+        "params": [
+          {
+            "name": "additionalMetadata",
+            "value": ""
+          }
+        ],
+        "isHeaderEnabledList": null,
+        "isParamEnabledList": [
+          true
+        ],
+        "authModel": {
+          "type": "none"
+        },
+        "bodyContentType": "json",
+        "body": null,
+        "query": null,
+        "formData": null
+      },
+      "responseStatus": null,
+      "message": null,
+      "httpResponseModel": null,
+      "preRequestScript": null,
+      "postRequestScript": null,
+      "aiRequestModel": null
+    },
+    {
+      "id": "petstore-get-store-inventory",
+      "apiType": "rest",
+      "name": "Returns pet inventories by status.",
+      "description": "Returns a map of status codes to quantities.",
+      "httpRequestModel": {
+        "method": "get",
+        "url": "/api/v3/store/inventory",
+        "headers": null,
+        "params": null,
+        "isHeaderEnabledList": null,
+        "isParamEnabledList": null,
+        "authModel": {
+          "type": "none"
+        },
+        "bodyContentType": "json",
+        "body": null,
+        "query": null,
+        "formData": null
+      },
+      "responseStatus": null,
+      "message": null,
+      "httpResponseModel": null,
+      "preRequestScript": null,
+      "postRequestScript": null,
+      "aiRequestModel": null
+    },
+    {
+      "id": "petstore-post-store-order",
+      "apiType": "rest",
+      "name": "Place an order for a pet.",
+      "description": "Place a new order in the store.",
+      "httpRequestModel": {
+        "method": "post",
+        "url": "/api/v3/store/order",
+        "headers": [
+          {
+            "name": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "params": null,
+        "isHeaderEnabledList": [
+          true
+        ],
+        "isParamEnabledList": null,
+        "authModel": {
+          "type": "none"
+        },
+        "bodyContentType": "json",
+        "body": null,
+        "query": null,
+        "formData": null
+      },
+      "responseStatus": null,
+      "message": null,
+      "httpResponseModel": null,
+      "preRequestScript": null,
+      "postRequestScript": null,
+      "aiRequestModel": null
+    },
+    {
+      "id": "petstore-get-store-order-orderId",
+      "apiType": "rest",
+      "name": "Find purchase order by ID.",
+      "description": "For valid response try integer IDs with value <= 5 or > 10. Other values will generate exceptions.",
+      "httpRequestModel": {
+        "method": "get",
+        "url": "/api/v3/store/order/{orderId}",
+        "headers": null,
+        "params": null,
+        "isHeaderEnabledList": null,
+        "isParamEnabledList": null,
+        "authModel": {
+          "type": "none"
+        },
+        "bodyContentType": "json",
+        "body": null,
+        "query": null,
+        "formData": null
+      },
+      "responseStatus": null,
+      "message": null,
+      "httpResponseModel": null,
+      "preRequestScript": null,
+      "postRequestScript": null,
+      "aiRequestModel": null
+    },
+    {
+      "id": "petstore-delete-store-order-orderId",
+      "apiType": "rest",
+      "name": "Delete purchase order by identifier.",
+      "description": "For valid response try integer IDs with value < 1000. Anything above 1000 or non-integers will generate API errors.",
+      "httpRequestModel": {
+        "method": "delete",
+        "url": "/api/v3/store/order/{orderId}",
+        "headers": null,
+        "params": null,
+        "isHeaderEnabledList": null,
+        "isParamEnabledList": null,
+        "authModel": {
+          "type": "none"
+        },
+        "bodyContentType": "json",
+        "body": null,
+        "query": null,
+        "formData": null
+      },
+      "responseStatus": null,
+      "message": null,
+      "httpResponseModel": null,
+      "preRequestScript": null,
+      "postRequestScript": null,
+      "aiRequestModel": null
+    },
+    {
+      "id": "petstore-post-user",
+      "apiType": "rest",
+      "name": "Create user.",
+      "description": "This can only be done by the logged in user.",
+      "httpRequestModel": {
+        "method": "post",
+        "url": "/api/v3/user",
+        "headers": [
+          {
+            "name": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "params": null,
+        "isHeaderEnabledList": [
+          true
+        ],
+        "isParamEnabledList": null,
+        "authModel": {
+          "type": "none"
+        },
+        "bodyContentType": "json",
+        "body": null,
+        "query": null,
+        "formData": null
+      },
+      "responseStatus": null,
+      "message": null,
+      "httpResponseModel": null,
+      "preRequestScript": null,
+      "postRequestScript": null,
+      "aiRequestModel": null
+    },
+    {
+      "id": "petstore-post-user-createWithList",
+      "apiType": "rest",
+      "name": "Creates list of users with given input array.",
+      "description": "Creates list of users with given input array.",
+      "httpRequestModel": {
+        "method": "post",
+        "url": "/api/v3/user/createWithList",
+        "headers": [
+          {
+            "name": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "params": null,
+        "isHeaderEnabledList": [
+          true
+        ],
+        "isParamEnabledList": null,
+        "authModel": {
+          "type": "none"
+        },
+        "bodyContentType": "json",
+        "body": null,
+        "query": null,
+        "formData": null
+      },
+      "responseStatus": null,
+      "message": null,
+      "httpResponseModel": null,
+      "preRequestScript": null,
+      "postRequestScript": null,
+      "aiRequestModel": null
+    },
+    {
+      "id": "petstore-get-user-login",
+      "apiType": "rest",
+      "name": "Logs user into the system.",
+      "description": "Log into the system.",
+      "httpRequestModel": {
+        "method": "get",
+        "url": "/api/v3/user/login",
+        "headers": null,
+        "params": [
+          {
+            "name": "username",
+            "value": ""
+          },
+          {
+            "name": "password",
+            "value": ""
+          }
+        ],
+        "isHeaderEnabledList": null,
+        "isParamEnabledList": [
+          true,
+          true
+        ],
+        "authModel": {
+          "type": "none"
+        },
+        "bodyContentType": "json",
+        "body": null,
+        "query": null,
+        "formData": null
+      },
+      "responseStatus": null,
+      "message": null,
+      "httpResponseModel": null,
+      "preRequestScript": null,
+      "postRequestScript": null,
+      "aiRequestModel": null
+    },
+    {
+      "id": "petstore-get-user-logout",
+      "apiType": "rest",
+      "name": "Logs out current logged in user session.",
+      "description": "Log user out of the system.",
+      "httpRequestModel": {
+        "method": "get",
+        "url": "/api/v3/user/logout",
+        "headers": null,
+        "params": null,
+        "isHeaderEnabledList": null,
+        "isParamEnabledList": null,
+        "authModel": {
+          "type": "none"
+        },
+        "bodyContentType": "json",
+        "body": null,
+        "query": null,
+        "formData": null
+      },
+      "responseStatus": null,
+      "message": null,
+      "httpResponseModel": null,
+      "preRequestScript": null,
+      "postRequestScript": null,
+      "aiRequestModel": null
+    },
+    {
+      "id": "petstore-get-user-username",
+      "apiType": "rest",
+      "name": "Get user by user name.",
+      "description": "Get user detail based on username.",
+      "httpRequestModel": {
+        "method": "get",
+        "url": "/api/v3/user/{username}",
+        "headers": null,
+        "params": null,
+        "isHeaderEnabledList": null,
+        "isParamEnabledList": null,
+        "authModel": {
+          "type": "none"
+        },
+        "bodyContentType": "json",
+        "body": null,
+        "query": null,
+        "formData": null
+      },
+      "responseStatus": null,
+      "message": null,
+      "httpResponseModel": null,
+      "preRequestScript": null,
+      "postRequestScript": null,
+      "aiRequestModel": null
+    },
+    {
+      "id": "petstore-put-user-username",
+      "apiType": "rest",
+      "name": "Update user resource.",
+      "description": "This can only be done by the logged in user.",
+      "httpRequestModel": {
+        "method": "put",
+        "url": "/api/v3/user/{username}",
+        "headers": [
+          {
+            "name": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "params": null,
+        "isHeaderEnabledList": [
+          true
+        ],
+        "isParamEnabledList": null,
+        "authModel": {
+          "type": "none"
+        },
+        "bodyContentType": "json",
+        "body": null,
+        "query": null,
+        "formData": null
+      },
+      "responseStatus": null,
+      "message": null,
+      "httpResponseModel": null,
+      "preRequestScript": null,
+      "postRequestScript": null,
+      "aiRequestModel": null
+    },
+    {
+      "id": "petstore-delete-user-username",
+      "apiType": "rest",
+      "name": "Delete user resource.",
+      "description": "This can only be done by the logged in user.",
+      "httpRequestModel": {
+        "method": "delete",
+        "url": "/api/v3/user/{username}",
+        "headers": null,
+        "params": null,
+        "isHeaderEnabledList": null,
+        "isParamEnabledList": null,
+        "authModel": {
+          "type": "none"
+        },
+        "bodyContentType": "json",
+        "body": null,
+        "query": null,
+        "formData": null
+      },
+      "responseStatus": null,
+      "message": null,
+      "httpResponseModel": null,
+      "preRequestScript": null,
+      "postRequestScript": null,
+      "aiRequestModel": null
+    }
+  ]
+}

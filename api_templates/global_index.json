@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-03-27T21:45:49.792770Z",
+  "updatedAt": "2026-03-28T20:49:10.968746Z",
   "apis": [
     {
       "id": "openmeteo",
@@ -24,10 +24,19 @@
       "description": "Demo API for GSoC PoC showcase",
       "latestVersion": "2026-03-27",
       "endpointCount": 5
+    },
+    {
+      "id": "petstore",
+      "name": "Petstore",
+      "category": "Test",
+      "description": "Swagger Petstore - standard OpenAPI 3.0 test spec",
+      "latestVersion": "2026-03-28",
+      "endpointCount": 19
     }
   ],
   "categories": [
     "Social",
+    "Test",
     "Utilities",
     "Weather"
   ]

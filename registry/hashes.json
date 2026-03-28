@@ -10,5 +10,9 @@
   "demoapi": {
     "hash": "41520d5c4d7535f98c5396330ec63ccb1cf52aec958a6fcc0c0b950f8b1d4d56",
     "lastSynced": "2026-03-27T21:45:49Z"
+  },
+  "petstore": {
+    "hash": "00441c05add60f28da55eb4563d3fb6bbda364ba8eb7b381e2e2c98613005c82",
+    "lastSynced": "2026-03-28T20:49:10Z"
   }
 }

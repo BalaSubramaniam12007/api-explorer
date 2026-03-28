@@ -1,0 +1,11 @@
+{
+  "id": "petstore",
+  "name": "Petstore",
+  "versions": [
+    {
+      "version": "2026-03-28",
+      "templatesPath": "2026-03-28/templates.json",
+      "updatedAt": "2026-03-28T20:49:10.931220Z"
+    }
+  ]
+}
