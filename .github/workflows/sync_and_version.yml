@@ -59,25 +59,33 @@ jobs:
               registry/hashes.json > /tmp/h.json && mv /tmp/h.json registry/hashes.json
           done
 
-      - name: Generate current.json pointer
-        run: |
-          COMMIT_SHA=${{ github.sha }}
-          TIMESTAMP=$(date -u +%Y-%m-%dT%H:%M:%SZ)
-          jq -n \
-            --arg sha "$COMMIT_SHA" \
-            --arg ts "$TIMESTAMP" \
-            '{sha: $sha, updatedAt: $ts, message: "Pointer to latest immutable CDN URLs"}' \
-            > api_templates/current.json
-          cat api_templates/current.json
-
-      - name: Commit output
+      - name: Commit templates output
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add api_templates/ registry/hashes.json
+          if git diff --cached --quiet; then
+            echo "No template changes."
+          else
+            git commit -m "chore(sync): update API templates and hashes [$(date -u +%Y-%m-%d)]" && git push
+          fi
+
+      - name: Generate current.json pointer (post-push SHA)
+        run: |
+          # Read the SHA of the commit that was just pushed (or HEAD if nothing changed)
+          NEW_SHA=$(git rev-parse HEAD)
+          TIMESTAMP=$(date -u +%Y-%m-%dT%H:%M:%SZ)
+          jq -n \
+            --arg sha "$NEW_SHA" \
+            --arg ts "$TIMESTAMP" \
+            '{sha: $sha, updatedAt: $ts, message: "Pointer to latest immutable CDN URLs"}' \
+            > api_templates/current.json
+          echo "current.json now points to: $NEW_SHA"
+          cat api_templates/current.json
+          git add api_templates/current.json
           git diff --cached --quiet \
-            && echo "No changes." \
-            || git commit -m "chore(sync): update API templates and hashes [$(date -u +%Y-%m-%d)]" && git push
+            && echo "current.json unchanged." \
+            || git commit -m "chore(pointer): update current.json to $NEW_SHA" && git push
 
       - name: Purge jsDelivr Cache
         run: |
