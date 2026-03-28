@@ -31,13 +31,13 @@
             "enabled": true
         },
         {
-            "id": "HubSpot ",
-            "name": "HubSpot",
-            "specUrl": "https://raw.githubusercontent.com/box/box-openapi/refs/heads/main/openapi.json",
+            "id": "petstore",
+            "name": "Petstore",
+            "specUrl": "https://petstore3.swagger.io/api/v3/openapi.json",
             "specFormat": "json",
-            "category": "Utilities",
-            "description": "Hubspot",
-            "homepage": "",
+            "category": "Test",
+            "description": "Swagger Petstore - standard OpenAPI 3.0 test spec",
+            "homepage": "https://petstore3.swagger.io",
             "enabled": true
         }
     ]
