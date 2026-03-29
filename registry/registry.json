@@ -39,17 +39,16 @@
             "description": "Swagger Petstore - standard OpenAPI 3.0 test spec",
             "homepage": "https://petstore3.swagger.io",
             "enabled": true
-        }
+        },
         {
-            "id": "1Password Connect",
-            "name": "1Password Connect",
-            "specUrl": "https://raw.githubusercontent.com/BalaSubramaniam12007/api-explorer/refs/heads/main/demo_specs/1Password%20Connect-swagger.json",
+            "id": "Demo API",
+            "name": "Demo API",
+            "specUrl": "https://raw.githubusercontent.com/BalaSubramaniam12007/api-explorer/refs/heads/main/demo_specs/Demoapi.json",
             "specFormat": "json",
-            "category": "Utilities",
-            "description": "REST API interface for 1Password Connect.",
+            "category": "Demo",
+            "description": "A demo REST API with 7 endpoints covering Users, Products, and Orders management.",
             "homepage": "",
             "enabled": true
         }
-        
     ]
 }
