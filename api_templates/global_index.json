@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-03-28T20:49:10.968746Z",
+  "updatedAt": "2026-03-29T04:12:17.589724Z",
   "apis": [
     {
       "id": "openmeteo",
@@ -26,6 +26,14 @@
       "endpointCount": 5
     },
     {
+      "id": "Demo API",
+      "name": "Demo API",
+      "category": "Demo",
+      "description": "A demo REST API with 7 endpoints covering Users, Products, and Orders management.",
+      "latestVersion": "2026-03-29",
+      "endpointCount": 8
+    },
+    {
       "id": "petstore",
       "name": "Petstore",
       "category": "Test",
@@ -35,6 +43,7 @@
     }
   ],
   "categories": [
+    "Demo",
     "Social",
     "Test",
     "Utilities",

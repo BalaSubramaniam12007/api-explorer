@@ -1,0 +1,267 @@
+{
+  "info": {
+    "title": "Demo API",
+    "description": "A demo REST API with 7 endpoints covering users, products, and orders.",
+    "tags": [
+      "Users",
+      "Products",
+      "Orders"
+    ]
+  },
+  "requests": [
+    {
+      "id": "Demo API-get-users",
+      "apiType": "rest",
+      "name": "List all users",
+      "description": "Returns a paginated list of all registered users.",
+      "httpRequestModel": {
+        "method": "get",
+        "url": "https://api.demoapi.io/v1/users",
+        "headers": null,
+        "params": [
+          {
+            "name": "page",
+            "value": ""
+          },
+          {
+            "name": "limit",
+            "value": ""
+          }
+        ],
+        "isHeaderEnabledList": null,
+        "isParamEnabledList": [
+          true,
+          true
+        ],
+        "authModel": {
+          "type": "none"
+        },
+        "bodyContentType": "json",
+        "body": null,
+        "query": null,
+        "formData": null
+      },
+      "responseStatus": null,
+      "message": null,
+      "httpResponseModel": null,
+      "preRequestScript": null,
+      "postRequestScript": null,
+      "aiRequestModel": null
+    },
+    {
+      "id": "Demo API-post-users",
+      "apiType": "rest",
+      "name": "Create a new user",
+      "description": "Registers a new user account.",
+      "httpRequestModel": {
+        "method": "post",
+        "url": "https://api.demoapi.io/v1/users",
+        "headers": [
+          {
+            "name": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "params": null,
+        "isHeaderEnabledList": [
+          true
+        ],
+        "isParamEnabledList": null,
+        "authModel": {
+          "type": "none"
+        },
+        "bodyContentType": "json",
+        "body": null,
+        "query": null,
+        "formData": null
+      },
+      "responseStatus": null,
+      "message": null,
+      "httpResponseModel": null,
+      "preRequestScript": null,
+      "postRequestScript": null,
+      "aiRequestModel": null
+    },
+    {
+      "id": "Demo API-get-users-userId",
+      "apiType": "rest",
+      "name": "Get a user by ID",
+      "description": "Retrieves a single user by their unique ID.",
+      "httpRequestModel": {
+        "method": "get",
+        "url": "https://api.demoapi.io/v1/users/{userId}",
+        "headers": null,
+        "params": null,
+        "isHeaderEnabledList": null,
+        "isParamEnabledList": null,
+        "authModel": {
+          "type": "none"
+        },
+        "bodyContentType": "json",
+        "body": null,
+        "query": null,
+        "formData": null
+      },
+      "responseStatus": null,
+      "message": null,
+      "httpResponseModel": null,
+      "preRequestScript": null,
+      "postRequestScript": null,
+      "aiRequestModel": null
+    },
+    {
+      "id": "Demo API-get-products",
+      "apiType": "rest",
+      "name": "List all products",
+      "description": "Returns a paginated list of all products in the catalog.",
+      "httpRequestModel": {
+        "method": "get",
+        "url": "https://api.demoapi.io/v1/products",
+        "headers": null,
+        "params": [
+          {
+            "name": "category",
+            "value": ""
+          },
+          {
+            "name": "inStock",
+            "value": ""
+          }
+        ],
+        "isHeaderEnabledList": null,
+        "isParamEnabledList": [
+          true,
+          true
+        ],
+        "authModel": {
+          "type": "none"
+        },
+        "bodyContentType": "json",
+        "body": null,
+        "query": null,
+        "formData": null
+      },
+      "responseStatus": null,
+      "message": null,
+      "httpResponseModel": null,
+      "preRequestScript": null,
+      "postRequestScript": null,
+      "aiRequestModel": null
+    },
+    {
+      "id": "Demo API-get-products-productId",
+      "apiType": "rest",
+      "name": "Get a product by ID",
+      "description": "Retrieves details for a specific product.",
+      "httpRequestModel": {
+        "method": "get",
+        "url": "https://api.demoapi.io/v1/products/{productId}",
+        "headers": null,
+        "params": null,
+        "isHeaderEnabledList": null,
+        "isParamEnabledList": null,
+        "authModel": {
+          "type": "none"
+        },
+        "bodyContentType": "json",
+        "body": null,
+        "query": null,
+        "formData": null
+      },
+      "responseStatus": null,
+      "message": null,
+      "httpResponseModel": null,
+      "preRequestScript": null,
+      "postRequestScript": null,
+      "aiRequestModel": null
+    },
+    {
+      "id": "Demo API-post-orders",
+      "apiType": "rest",
+      "name": "Create an order",
+      "description": "Places a new order for one or more products.",
+      "httpRequestModel": {
+        "method": "post",
+        "url": "https://api.demoapi.io/v1/orders",
+        "headers": [
+          {
+            "name": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "params": null,
+        "isHeaderEnabledList": [
+          true
+        ],
+        "isParamEnabledList": null,
+        "authModel": {
+          "type": "none"
+        },
+        "bodyContentType": "json",
+        "body": null,
+        "query": null,
+        "formData": null
+      },
+      "responseStatus": null,
+      "message": null,
+      "httpResponseModel": null,
+      "preRequestScript": null,
+      "postRequestScript": null,
+      "aiRequestModel": null
+    },
+    {
+      "id": "Demo API-get-orders-orderId",
+      "apiType": "rest",
+      "name": "Get an order by ID",
+      "description": "Retrieves the details and current status of a specific order.",
+      "httpRequestModel": {
+        "method": "get",
+        "url": "https://api.demoapi.io/v1/orders/{orderId}",
+        "headers": null,
+        "params": null,
+        "isHeaderEnabledList": null,
+        "isParamEnabledList": null,
+        "authModel": {
+          "type": "none"
+        },
+        "bodyContentType": "json",
+        "body": null,
+        "query": null,
+        "formData": null
+      },
+      "responseStatus": null,
+      "message": null,
+      "httpResponseModel": null,
+      "preRequestScript": null,
+      "postRequestScript": null,
+      "aiRequestModel": null
+    },
+    {
+      "id": "Demo API-delete-orders-orderId",
+      "apiType": "rest",
+      "name": "Cancel an order",
+      "description": "Cancels an existing order if it hasn't been shipped yet.",
+      "httpRequestModel": {
+        "method": "delete",
+        "url": "https://api.demoapi.io/v1/orders/{orderId}",
+        "headers": null,
+        "params": null,
+        "isHeaderEnabledList": null,
+        "isParamEnabledList": null,
+        "authModel": {
+          "type": "none"
+        },
+        "bodyContentType": "json",
+        "body": null,
+        "query": null,
+        "formData": null
+      },
+      "responseStatus": null,
+      "message": null,
+      "httpResponseModel": null,
+      "preRequestScript": null,
+      "postRequestScript": null,
+      "aiRequestModel": null
+    }
+  ]
+}

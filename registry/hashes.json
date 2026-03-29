@@ -14,5 +14,9 @@
   "petstore": {
     "hash": "00441c05add60f28da55eb4563d3fb6bbda364ba8eb7b381e2e2c98613005c82",
     "lastSynced": "2026-03-28T20:49:10Z"
+  },
+  "Demo API": {
+    "hash": "f6bfb8f43ea52150a20f12b6ec810c8d450c986d6826ded9db8b1033ab5722ac",
+    "lastSynced": "2026-03-29T04:12:17Z"
   }
 }
