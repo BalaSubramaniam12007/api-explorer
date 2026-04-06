@@ -126,38 +126,6 @@
           "404": { "description": "Post not found" }
         }
       },
-      "post": {
-        "summary": "Add a comment to a post",
-        "operationId": "createPostComment",
-        "tags": ["Comments"],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": { "type": "integer" }
-          }
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "name": { "type": "string" },
-                  "email": { "type": "string" },
-                  "body": { "type": "string" }
-                }
-              }
-            }
-          }
-        },
-        "responses": {
-          "201": { "description": "Comment created" }
-        }
-      }
-    },
     "/posts/search": {
       "get": {
         "summary": "Search posts by userId",
