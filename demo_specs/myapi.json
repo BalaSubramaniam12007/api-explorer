@@ -91,23 +91,6 @@
           "200": { "description": "Updated" }
         }
       },
-      "delete": {
-        "summary": "Delete a post",
-        "operationId": "deletePost",
-        "tags": ["Posts"],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": { "type": "integer" }
-          }
-        ],
-        "responses": {
-          "200": { "description": "Deleted" }
-        }
-      }
-    },
     "/posts/{id}/comments": {
       "get": {
         "summary": "Get comments for a post",
