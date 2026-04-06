@@ -20,30 +20,6 @@
           "200": { "description": "Successful response" }
         }
       },
-      "post": {
-        "summary": "Create a new post",
-        "operationId": "createPost",
-        "tags": ["Posts"],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "title": { "type": "string" },
-                  "body": { "type": "string" },
-                  "userId": { "type": "integer" }
-                }
-              }
-            }
-          }
-        },
-        "responses": {
-          "201": { "description": "Created" }
-        }
-      }
-    },
     "/posts/{id}": {
       "get": {
         "summary": "Get a post by ID",
